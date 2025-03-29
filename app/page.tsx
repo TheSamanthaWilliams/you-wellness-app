@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-6">
@@ -13,9 +15,9 @@ export default function Home() {
           Your journey to mind, body, and spirit wellness
         </p>
         
-        <button className="bg-you-green text-white px-8 py-3 rounded-full">
+        <Link href="/dashboard" className="bg-you-green text-white px-8 py-3 rounded-full inline-block">
           Get Started
-        </button>
+        </Link>
       </div>
     </main>
   );
