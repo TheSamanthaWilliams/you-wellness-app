@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { Heart } from 'lucide-react';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -53,11 +55,22 @@ export default function Dashboard() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold text-green-600 mb-2">Your Wellness Dashboard</h2>
-          <p className="text-gray-600">
-            Track your progress across mind, body, and spirit to achieve holistic wellness.
-          </p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h2 className="text-4xl font-bold text-green-600 mb-2">Your Wellness Dashboard</h2>
+            <p className="text-gray-600">
+              Track your progress across mind, body, and spirit to achieve holistic wellness.
+            </p>
+          </div>
+          
+          {/* Donation Button - Added here */}
+          <Link
+            href="/donate"
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+          >
+            <Heart className="mr-2 h-4 w-4" />
+            Make a Donation
+          </Link>
         </div>
         
         {/* Wellness Metrics */}
@@ -242,17 +255,6 @@ export default function Dashboard() {
               + Add Goal
             </button>
           </div>
-        </div>
-        
-        {/* Upcoming Features Teaser */}
-        <div className="mt-12 bg-white rounded-xl shadow-md p-6 text-center">
-          <h3 className="text-xl font-bold text-gray-800 mb-2">Coming Soon</h3>
-          <p className="text-gray-600">
-            Weekly insights, personalized recommendations, and community features.
-          </p>
-          <p className="text-gray-600 mt-2">
-            We're working hard to bring you these exciting features!
-          </p>
         </div>
       </main>
       
