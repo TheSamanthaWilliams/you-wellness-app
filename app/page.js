@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, User, Mail, Lock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function SignUp() {
   const router = useRouter();
@@ -340,6 +341,29 @@ export default function SignUp() {
               </div>
             )}
           </form>
+
+          {/* Login option */}
+          <div className="mt-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">
+                  Already have an account?
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <Link
+                href="/login"
+                className="w-full flex justify-center py-2 px-4 border border-green-600 rounded-md shadow-sm text-sm font-medium text-green-600 bg-white hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              >
+                Log In
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
