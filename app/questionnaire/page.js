@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import BottomNav from '../components/BottomNav';
 
 export default function WellnessQuestionnaire() {
   const router = useRouter();
@@ -224,72 +225,75 @@ export default function WellnessQuestionnaire() {
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold text-green-600">YOU Wellness</h1>
-          <p className="mt-2 text-gray-600">Let's understand your wellness baseline</p>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 pb-20">
+      <header className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-green-600">YOU Wellness</h1>
         </div>
-      </div>
+      </header>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-lg">
-        <div className="bg-white py-8 px-4 shadow-xl sm:rounded-lg sm:px-10">
-          {/* Progress bar */}
-          <div className="w-full bg-gray-200 rounded-full h-2.5 mb-6">
-            <div 
-              className="bg-green-600 h-2.5 rounded-full transition-all duration-300 ease-in-out" 
-              style={{ width: `${progress}%` }}>
-            </div>
-          </div>
-          
-          <div className="text-right text-sm text-gray-500 mb-4">
-            Question {currentQuestion + 1} of {questions.length}
-          </div>
-          
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-800 mb-6">{currentQ.question}</h2>
-            
-            <div className="mt-6">
-              <input
-                type="range"
-                id={currentQ.id}
-                name={currentQ.id}
-                min={currentQ.min}
-                max={currentQ.max}
-                step={currentQ.step}
-                value={answers[currentQ.id]}
-                onChange={handleInputChange}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-              />
-              <div className="flex justify-between mt-2 text-sm text-gray-500">
-                <span>{currentQ.minLabel}</span>
-                <span className="font-medium text-gray-800">{answers[currentQ.id]}</span>
-                <span>{currentQ.maxLabel}</span>
+      <main className="container mx-auto px-4 py-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-lg">
+          <div className="bg-white py-8 px-4 shadow-xl sm:rounded-lg sm:px-10">
+            {/* Progress bar */}
+            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+              <div 
+                className="bg-green-600 h-2.5 rounded-full transition-all duration-300 ease-in-out" 
+                style={{ width: `${progress}%` }}>
               </div>
             </div>
-          </div>
-          
-          <div className="flex justify-between">
-            <button
-              type="button"
-              onClick={prevQuestion}
-              disabled={currentQuestion === 0}
-              className="py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-40"
-            >
-              Previous
-            </button>
             
-            <button
-              type="button"
-              onClick={nextQuestion}
-              disabled={isSubmitting}
-              className="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
-            >
-              {currentQuestion === questions.length - 1 ? (isSubmitting ? 'Loading...' : 'Finish') : 'Next'}
-            </button>
+            <div className="text-right text-sm text-gray-500 mb-4">
+              Question {currentQuestion + 1} of {questions.length}
+            </div>
+            
+            <div className="mb-8">
+              <h2 className="text-xl font-semibold text-gray-800 mb-6">{currentQ.question}</h2>
+              
+              <div className="mt-6">
+                <input
+                  type="range"
+                  id={currentQ.id}
+                  name={currentQ.id}
+                  min={currentQ.min}
+                  max={currentQ.max}
+                  step={currentQ.step}
+                  value={answers[currentQ.id]}
+                  onChange={handleInputChange}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                />
+                <div className="flex justify-between mt-2 text-sm text-gray-500">
+                  <span>{currentQ.minLabel}</span>
+                  <span className="font-medium text-gray-800">{answers[currentQ.id]}</span>
+                  <span>{currentQ.maxLabel}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex justify-between">
+              <button
+                type="button"
+                onClick={prevQuestion}
+                disabled={currentQuestion === 0}
+                className="py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-40"
+              >
+                Previous
+              </button>
+              
+              <button
+                type="button"
+                onClick={nextQuestion}
+                disabled={isSubmitting}
+                className="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
+              >
+                {currentQuestion === questions.length - 1 ? (isSubmitting ? 'Loading...' : 'Finish') : 'Next'}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+      
+      <BottomNav />
     </div>
   );
 }
