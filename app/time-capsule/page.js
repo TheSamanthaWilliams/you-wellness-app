@@ -2,35 +2,36 @@
 
 import React, { useState } from 'react';
 import BottomNav from '../components/BottomNav';
-import { Book, Calendar } from 'lucide-react';
+import { Book } from 'lucide-react';
 
 export default function TimeCapsule() {
   const [activeTab, setActiveTab] = useState('memories');
   
+  // Fixed memories array with proper syntax
   const memories = [
     {
       id: 1,
-      date: 'March 28, 2025',
-      title: 'First Meditation Milestone',
-      description: 'Completed 7 consecutive days of morning meditation! Feeling more centered and focused.',
+      date: "March 28, 2025",
+      title: "First Meditation Milestone",
+      description: "Completed 7 consecutive days of morning meditation! Feeling more centered and focused.",
       image: null,
-      category: 'mind'
+      category: "mind"
     },
     {
       id: 2,
-      date: 'March 15, 2025',
-      title: 'Morning Run by the Lake',
-      description: 'Beautiful sunrise during my morning run. Made it 5 miles without stopping!',
+      date: "March 15, 2025",
+      title: "Morning Run by the Lake",
+      description: "Beautiful sunrise during my morning run. Made it 5 miles without stopping!",
       image: null,
-      category: 'body'
+      category: "body"
     },
     {
       id: 3,
-      date: 'March 10, 2025',
-      title: 'Gratitude Journal Entry',
-      description: 'Started my gratitude practice. Today I am grateful for family, health, and this journey.',
+      date: "March 10, 2025",
+      title: "Gratitude Journal Entry",
+      description: "Started my gratitude practice. Today I am grateful for family, health, and this journey.",
       image: null,
-      category: 'spirit'
+      category: "spirit"
     }
   ];
 
@@ -87,7 +88,7 @@ export default function TimeCapsule() {
             <Book className="h-12 w-12 text-gray-300 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-800 mb-2">Journal Coming Soon</h3>
             <p className="text-gray-500 max-w-xs mx-auto">
-              We're still building this feature. Check back soon!
+              We are still building this feature. Check back soon!
             </p>
           </div>
         )}
