@@ -33,8 +33,8 @@ export default function Login() {
     try {
       // Simulate an API call
       setTimeout(() => {
-        // For demo, let's accept any login and just create a user
-        localStorage.setItem('youWellnessUser', JSON.stringify({
+        // Create a user if one doesn't exist
+        const userData = {
           name: "Demo User",
           email: formData.email,
           wellnessGoals: {
@@ -43,10 +43,28 @@ export default function Login() {
             spirit: false
           },
           isLoggedIn: true
-        }));
+        };
         
-        // Redirect to dashboard
-        router.push('/dashboard');
+        // Check if user already has wellness scores (indicating they've completed the questionnaire)
+        const existingUserData = localStorage.getItem('youWellnessUser');
+        if (existingUserData) {
+          const parsedData = JSON.parse(existingUserData);
+          if (parsedData.wellnessScores) {
+            // They've already done the questionnaire, go straight to dashboard
+            localStorage.setItem('youWellnessUser', JSON.stringify({
+              ...userData,
+              wellnessScores: parsedData.wellnessScores,
+              activities: parsedData.activities,
+              goals: parsedData.goals
+            }));
+            router.push('/dashboard');
+            return;
+          }
+        }
+        
+        // New user or never completed questionnaire
+        localStorage.setItem('youWellnessUser', JSON.stringify(userData));
+        router.push('/questionnaire');
       }, 1000);
     } catch (error) {
       console.error('Login error:', error);
