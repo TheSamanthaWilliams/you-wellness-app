@@ -111,8 +111,8 @@ export default function SignUp() {
             isLoggedIn: true
           }));
           
-          // Redirect to dashboard
-          router.push('/dashboard');
+          // Redirect to questionnaire instead of dashboard
+          router.push('/questionnaire');
           
           setIsSubmitting(false);
         }, 1500);
