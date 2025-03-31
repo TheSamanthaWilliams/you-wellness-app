@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Heart } from 'lucide-react';
+import BottomNav from '../components/BottomNav';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -41,7 +42,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 pb-20">
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-green-600">YOU Wellness</h1>
@@ -63,7 +64,6 @@ export default function Dashboard() {
             </p>
           </div>
           
-          {/* Donation Button - Added here */}
           <Link
             href="/donate"
             className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
@@ -258,11 +258,7 @@ export default function Dashboard() {
         </div>
       </main>
       
-      <footer className="bg-white mt-12 py-6 border-t border-gray-200">
-        <div className="container mx-auto px-4 text-center text-gray-500">
-          <p>© 2025 YOU Wellness. Your journey to holistic wellness.</p>
-        </div>
-      </footer>
+      <BottomNav />
     </div>
   );
 }
