@@ -1,208 +1,129 @@
 "use client";
 
 import React, { useState } from 'react';
-import BottomNav from '../components/BottomNav';
-import { Plus, TrendingUp, Calendar, Clock, Activity, Heart } from 'lucide-react';
+import Link from 'next/link';
 
-export default function HealthLog() {
-  const [activeTab, setActiveTab] = useState('overview');
+export default function HealthLogPage() {
+  const [activeDay, setActiveDay] = useState('today');
   
-  // Sample data for health metrics
-  const healthMetrics = [
-    { 
-      name: 'Heart Rate', 
-      value: '68', 
-      unit: 'bpm', 
-      change: '-2', 
-      status: 'good',
-      icon: <Heart className="text-red-500" />
-    },
-    { 
-      name: 'Sleep', 
-      value: '7.5', 
-      unit: 'hours', 
-      change: '+0.5', 
-      status: 'good',
-      icon: <Clock className="text-blue-500" />
-    },
-    { 
-      name: 'Steps', 
-      value: '8,745', 
-      unit: 'steps', 
-      change: '+1,205', 
-      status: 'good',
-      icon: <Activity className="text-green-500" />
-    },
-    { 
-      name: 'Meditation', 
-      value: '15', 
-      unit: 'min', 
-      change: '0', 
-      status: 'neutral',
-      icon: <Clock className="text-purple-500" />
-    }
-  ];
-  
-  // Recent activities
-  const recentActivities = [
-    { 
-      id: 1, 
-      type: 'Walk', 
-      date: 'Today, 8:30 AM', 
-      duration: '30 minutes', 
-      metrics: '2.3 miles'
-    },
-    { 
-      id: 2, 
-      type: 'Yoga', 
-      date: 'Today, 6:00 AM', 
-      duration: '45 minutes', 
-      metrics: 'Flexibility focus'
-    },
-    { 
-      id: 3, 
-      type: 'Meditation', 
-      date: 'Yesterday, 9:00 PM', 
-      duration: '15 minutes', 
-      metrics: 'Stress reduction'
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
-      <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-green-600">Health Log</h1>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white py-4 px-4 border-b border-gray-200">
+        <div className="flex items-center">
+          <Link href="/dashboard" className="mr-4">
+            <div className="w-10 h-10 bg-green-200 rounded-lg flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+          </Link>
+          <h1 className="text-2xl font-serif text-green-600">HEALTH LOG</h1>
+        </div>
+      </header>
+      
+      <div className="px-4 py-6">
+        {/* Reflection Section */}
+        <div className="mb-6">
+          <h2 className="text-green-400 text-lg font-light mb-4">REFLECTION</h2>
           
-          {/* Tab navigation */}
-          <div className="flex border-b border-gray-200 mt-4">
+          <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
+            <img 
+              src="/images/water-reflection.jpg" 
+              alt="Person relaxing in water" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          {/* Day Selector */}
+          <div className="flex bg-gray-100 rounded-full p-1 mb-4">
             <button
-              className={`py-2 px-4 font-medium text-sm ${
-                activeTab === 'overview' 
-                  ? 'border-b-2 border-green-600 text-green-600' 
-                  : 'text-gray-500'
+              onClick={() => setActiveDay('today')}
+              className={`flex-1 py-2 px-4 rounded-full text-sm ${
+                activeDay === 'today' ? 'bg-rose-200 text-gray-800' : 'text-gray-500'
               }`}
-              onClick={() => setActiveTab('overview')}
             >
-              Overview
+              Today
             </button>
             <button
-              className={`py-2 px-4 font-medium text-sm ${
-                activeTab === 'activities' 
-                  ? 'border-b-2 border-green-600 text-green-600' 
-                  : 'text-gray-500'
+              onClick={() => setActiveDay('monday')}
+              className={`flex-1 py-2 px-4 rounded-full text-sm ${
+                activeDay === 'monday' ? 'bg-rose-200 text-gray-800' : 'text-gray-500'
               }`}
-              onClick={() => setActiveTab('activities')}
             >
-              Activities
-            </button>
-            <button
-              className={`py-2 px-4 font-medium text-sm ${
-                activeTab === 'trends' 
-                  ? 'border-b-2 border-green-600 text-green-600' 
-                  : 'text-gray-500'
-              }`}
-              onClick={() => setActiveTab('trends')}
-            >
-              Trends
+              Monday
             </button>
           </div>
         </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-6">
-        {activeTab === 'overview' && (
-          <>
-            {/* Today's summary */}
-            <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold text-gray-800">Today's Summary</h2>
-                <div className="text-sm text-gray-500">March 30, 2025</div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                {healthMetrics.map((metric, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-3">
-                    <div className="flex justify-between items-center mb-1">
-                      <div className="flex items-center">
-                        <div className="mr-2 w-5 h-5">
-                          {metric.icon}
-                        </div>
-                        <span className="text-sm text-gray-700">{metric.name}</span>
-                      </div>
-                      <div className={`text-xs px-1.5 py-0.5 rounded ${
-                        metric.status === 'good' ? 'bg-green-100 text-green-700' :
-                        metric.status === 'warning' ? 'bg-yellow-100 text-yellow-700' :
-                        'bg-gray-100 text-gray-700'
-                      }`}>
-                        {metric.change.startsWith('+') ? `↑ ${metric.change}` : 
-                         metric.change.startsWith('-') ? `↓ ${metric.change}` : 
-                         `- ${metric.change}`}
-                      </div>
-                    </div>
-                    <div className="font-semibold text-xl text-gray-800">
-                      {metric.value} <span className="text-sm font-normal text-gray-500">{metric.unit}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        
+        {/* Energy Message */}
+        <div className="mb-6">
+          <h2 className="text-green-400 text-lg font-light mb-2">ENERGY MESSAGE</h2>
+          <p className="text-gray-600">
+            Strong mental well-being supports a fulfilling life. Embrace moments that nurture your inner peace.
+          </p>
+        </div>
+        
+        {/* Log Your Symptoms */}
+        <div className="mb-6">
+          <h2 className="text-green-400 text-lg font-light mb-4">LOG YOUR SYMPTOMS</h2>
+          
+          <div className="grid grid-cols-2 gap-4">
+            {/* Mind Section */}
+            <div className="bg-green-100 rounded-lg p-4">
+              <h3 className="text-white text-lg font-medium mb-2">MIND</h3>
+              <p className="text-white text-sm mb-4">
+                Focuses on mental clarity, emotional health, and self-growth through affirmations.
+              </p>
+              <button className="bg-white text-gray-600 rounded-full px-4 py-1 text-sm">
+                Add
+              </button>
             </div>
             
-            {/* Recent activities */}
-            <div className="bg-white rounded-xl shadow-sm p-4 mb-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-lg font-semibold text-gray-800">Recent Activities</h2>
-                <button className="text-sm text-green-600">See All</button>
-              </div>
-              
-              <div className="space-y-4">
-                {recentActivities.map((activity) => (
-                  <div key={activity.id} className="flex items-center border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                    <div className="bg-gray-100 rounded-full p-3 mr-3">
-                      <Activity className="h-5 w-5 text-gray-600" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium">{activity.type}</div>
-                      <div className="text-xs text-gray-500">{activity.date}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm">{activity.duration}</div>
-                      <div className="text-xs text-gray-500">{activity.metrics}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* Body Section */}
+            <div className="bg-green-100 rounded-lg p-4">
+              <h3 className="text-white text-lg font-medium mb-2">BODY</h3>
+              <p className="text-white text-sm mb-4">
+                Emphasizes physical wellness through exercise routines, nutrition tips, and daily check-ins.
+              </p>
+              <button className="bg-white text-gray-600 rounded-full px-4 py-1 text-sm">
+                Add
+              </button>
             </div>
-            
-            {/* Add activity button */}
-            <button className="w-full py-3 text-green-600 font-medium flex items-center justify-center bg-white rounded-xl shadow-sm">
-              <Plus className="h-4 w-4 mr-2" /> Log New Activity
-            </button>
-          </>
-        )}
-        
-        {activeTab === 'activities' && (
-          <div className="text-center py-12">
-            <Calendar className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-800 mb-2">Activity Calendar</h3>
-            <p className="text-gray-500 max-w-xs mx-auto mb-6">
-              Track and view your activities over time. Coming soon in the next update!
-            </p>
           </div>
-        )}
-        
-        {activeTab === 'trends' && (
-          <div className="text-center py-12">
-            <TrendingUp className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-800 mb-2">Health Trends</h3>
-            <p className="text-gray-500 max-w-xs mx-auto mb-6">
-              View your health trends and progress over time. Coming soon in the next update!
-            </p>
-          </div>
-        )}
-      </main>
+        </div>
+      </div>
       
-      <BottomNav />
-    </div>
-  );
-}
+      {/* Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-2">
+        <Link href="/you" className="flex flex-col items-center px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span className="text-xs text-gray-500">YOU</span>
+        </Link>
+        
+        <Link href="/feed" className="flex flex-col items-center px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span className="text-xs text-gray-500">Feed</span>
+        </Link>
+        
+        <Link href="/health-log" className="flex flex-col items-center px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span className="text-xs text-green-500">Health Log</span>
+        </Link>
+        
+        <Link href="/giving" className="flex flex-col items-center px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          <span className="text-xs text-gray-500">Giving</span>
+        </Link>
+        
+        <Link href="/time-capsule" className="flex flex-col items-center px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2
