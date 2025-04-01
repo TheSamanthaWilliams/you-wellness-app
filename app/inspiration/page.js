@@ -71,7 +71,7 @@ export default function InspirationPage() {
               </button>
             </div>
             <div className="p-3">
-              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mi...</h3>
+              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mind</h3>
               <div className="flex space-x-2 mt-2">
                 <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
@@ -102,7 +102,7 @@ export default function InspirationPage() {
               </button>
             </div>
             <div className="p-3">
-              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mi...</h3>
+              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mind</h3>
               <div className="flex space-x-2 mt-2">
                 <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
@@ -111,8 +111,7 @@ export default function InspirationPage() {
                 </button>
                 <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10
-<path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
@@ -134,7 +133,7 @@ export default function InspirationPage() {
               </button>
             </div>
             <div className="p-3">
-              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mi...</h3>
+              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mind</h3>
               <div className="flex space-x-2 mt-2">
                 <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
@@ -162,51 +161,8 @@ export default function InspirationPage() {
                 <div className="w-12 h-12 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </div>
-              <button className="absolute top-2 right-2 w-8 h-8 bg-white bg-opacity-70 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                </svg>
-              </button>
-            </div>
-            <div className="p-3">
-              <h3 className="text-gray-800 font-medium text-sm truncate">Feel And Relax You Mi...</h3>
-              <div className="flex space-x-2 mt-2">
-                <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Action Buttons */}
-        <div className="flex justify-center space-x-6 mt-6 bg-gray-100 rounded-full p-2">
-          <button className="flex items-center justify-center space-x-1 px-4 py-1 bg-rose-200 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-            </svg>
-            <span className="text-sm text-gray-700">Browse</span>
-          </button>
-          <button className="flex items-center justify-center space-x-1 px-4 py-1">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-              <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                    <path strok
+<path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
             </svg>
             <span className="text-sm text-gray-700">Watch</span>
           </button>
