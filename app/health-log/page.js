@@ -27,9 +27,7 @@ export default function HealthLogPage() {
         <div className="mb-6">
           <h2 className="text-green-400 text-lg font-light mb-4">REFLECTION</h2>
           
-          <div className="w-full h-48 rounded-lg overflow-hidden mb-4 bg-gray-200">
-            {/* Placeholder for water-reflection image */}
-          </div>
+          <div className="w-full h-48 rounded-lg overflow-hidden mb-4 bg-gray-200"></div>
           
           {/* Day Selector */}
           <div className="flex bg-gray-100 rounded-full p-1 mb-4">
